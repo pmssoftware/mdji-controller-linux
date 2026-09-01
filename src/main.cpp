@@ -129,10 +129,10 @@ public:
         setupAxis(ABS_RZ, 0, 32767);
 
         uinput_setup setup{};
-        std::snprintf(setup.name, UINPUT_MAX_NAME_SIZE, "DJI Phantom 3 Remote Controller");
+        std::snprintf(setup.name, UINPUT_MAX_NAME_SIZE, "DJI GL358wA Remote Controller");
         setup.id.bustype = BUS_USB;
-        setup.id.vendor = 0x2ca3;
-        setup.id.product = 0x001f;
+        setup.id.vendor = 0xfff0;
+        setup.id.product = 0x0008;
         setup.id.version = 1;
         if (ioctl(fd_.get(), UI_DEV_SETUP, &setup) < 0 || ioctl(fd_.get(), UI_DEV_CREATE) < 0) {
             throw std::runtime_error("creating uinput device failed: " + std::string(std::strerror(errno)));

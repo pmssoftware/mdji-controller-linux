@@ -1,4 +1,4 @@
-# DJI Phantom remote controllers supported by the original Windows VCOM package.
+# DJI remote-controller USB serial interfaces, including the tested GL358wA.
 # Serial interfaces are accessible to members of the common uucp/dialout groups.
 SUBSYSTEM=="tty", ATTRS{idVendor}=="2ca3", MODE="0660", TAG+="uaccess"
 SUBSYSTEM=="tty", ATTRS{idVendor}=="fff0", MODE="0660", TAG+="uaccess"

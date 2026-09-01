@@ -1,12 +1,12 @@
 # mDjiController Linux
 
-A native Linux userspace driver for the DJI Phantom 3 Advanced GL300C remote
-controller. It reads the controller's 115200-baud USB serial protocol and
+A native Linux userspace driver for the DJI GL358wA remote controller. It reads
+the controller's 115200-baud USB serial protocol and
 publishes the controls as a standard Linux joystick through `uinput`.
 
 This implementation is Linux-native: it does not use vJoy, the Windows DJI
 driver, or code from the original Windows application. It has been tested on
-CachyOS with a GL300C controller detected as `/dev/ttyACM0`.
+CachyOS with a GL358wA controller (`fff0:0008`) detected as `/dev/ttyACM0`.
 
 ## Features
 
@@ -68,7 +68,7 @@ Print live axis and button values while testing:
 mdji-controller --device /dev/ttyACM0 --verbose
 ```
 
-The virtual device appears as **DJI Phantom 3 Remote Controller**. Inspect it
+The virtual device appears as **DJI GL358wA Remote Controller**. Inspect it
 with `evtest`, Steam's controller settings, or the simulator of your choice.
 Press `Ctrl+C` to stop the driver.
 
