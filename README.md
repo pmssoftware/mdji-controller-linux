@@ -24,6 +24,24 @@ CachyOS with a GL358wA controller (`fff0:0008`) detected as `/dev/ttyACM0`.
 - CMake 3.16 or newer
 - udev on the target system
 
+## Install a prebuilt release
+
+The Releases page provides a statically linked x86_64 build that does not
+depend on a particular distribution's glibc or libstdc++ version. Download and
+extract the `mdji-controller-linux-*-x86_64.tar.gz` archive, then run:
+
+```sh
+sudo install -Dm755 mdji-controller /usr/local/bin/mdji-controller
+sudo install -Dm644 60-mdji-controller.rules \
+  /etc/udev/rules.d/60-mdji-controller.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo modprobe uinput
+```
+
+Unplug and reconnect the controller after installing the rule. The release is
+currently x86_64-only; other architectures should build from source.
+
 ## Build and install
 
 On CachyOS or Arch Linux:
