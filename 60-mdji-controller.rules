@@ -1,0 +1,8 @@
+# DJI Phantom remote controllers supported by the original Windows VCOM package.
+# Serial interfaces are accessible to members of the common uucp/dialout groups.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2ca3", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="fff0", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0660", TAG+="uaccess"
+
+# Permit the logged-in desktop user to create the virtual joystick.
+KERNEL=="uinput", SUBSYSTEM=="misc", MODE="0660", TAG+="uaccess", OPTIONS+="static_node=uinput"

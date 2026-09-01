@@ -1,0 +1,8 @@
+mDjiController Linux
+
+This project is an independent Linux implementation inspired by the protocol
+discovery and original Windows project at:
+https://github.com/mishavoloshchuk/mDjiController
+
+The original project is licensed under the Apache License, Version 2.0.
+No endorsement by DJI or the original project maintainers is implied.
