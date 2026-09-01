@@ -203,9 +203,10 @@ void decodeReport(const std::uint8_t* p, VirtualJoystick& joystick, DecoderState
     const std::uint8_t bits = p[29];
 
     const int flightMode = flight >= 32 ? 2 : flight >= 16 ? 1 : 0;
+    const int flightModeAxis = flightMode == 2 ? 32767 : flightMode * 16384;
     std::array<int, 6> axes{
         stickAxis(leftHorizontal), stickAxis(leftVertical), stickAxis(rightHorizontal),
-        stickAxis(rightVertical), std::clamp(camera * 8, 0, 32767), flightMode * 16384};
+        stickAxis(rightVertical), std::clamp(camera * 8, 0, 32767), flightModeAxis};
     std::array<bool, 9> buttons{};
     for (int i = 0; i < 7; ++i) buttons[i] = (bits & (1u << (i + 1))) != 0;
     if (state.haveWheel) {
